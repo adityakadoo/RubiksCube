@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
+import React, { useState } from 'react';
 import moves from './Moves';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -156,7 +155,7 @@ function RubiksCube({ size, parentDim }) {
             className='mybutton'
             onClick={handleKeyDown("'")}
             key={'dash-button'}
-            style={{ backgroundColor: moveAlter==="'" ? 'rgba(255,255,255,0.6)' : 'rgba(255,255,255,0.4)'}}
+            style={{ backgroundColor: moveAlter === "'" ? 'rgba(255,255,255,0.6)' : 'rgba(255,255,255,0.4)' }}
         >
             {"'"}
         </button>
@@ -208,23 +207,6 @@ function RubiksCube({ size, parentDim }) {
     );
 }
 
-function MyNavBar(props) {
-    return (
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-            <Navbar.Brand href="#home">Welcome.</Navbar.Brand>
-            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-            <Navbar.Collapse id="responsive-navbar-nav">
-                <Nav className="ml-auto">
-                    <Nav.Link href="#TGN">This goes nowhere</Nav.Link>
-                    <Nav.Link href="#SFT">Same for this</Nav.Link>
-                    <Nav.Link href="#WDYT">What do you think?</Nav.Link>
-                    <Nav.Link href="#CO">Come on!</Nav.Link>
-                </Nav>
-            </Navbar.Collapse>
-        </Navbar>
-    );
-}
-
 function App(props) {
     const [parentDimensions, setDimensions] = React.useState({
         height: elementHeight('root'),
@@ -251,7 +233,6 @@ function App(props) {
             width: parentDimensions.width,
             overflow: 'hidden'
         }}>
-            <MyNavBar />
             <RubiksCube size={Math.min(parentDimensions.height, parentDimensions.width) / 2} parentDim={parentDimensions} />
         </div>
     );
